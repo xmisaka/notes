@@ -62,7 +62,7 @@ public class ProxyTest{
 4. 使用代理对象。
 
 JDK动态代理的原理图：
-![动态代理](../../imgs/proxy.png)
+![动态代理](../imgs/proxy.png)
 说白了，动态代理的过程是这样的：
 1. Proxy通过传递参数给它参数（interfaces/invocationHandler）生成代理类$Proxy0;
 2. Proxy通过传递给它的参数(ClassLoader)来加载生成的代理类$Proxy0的字节码文件
