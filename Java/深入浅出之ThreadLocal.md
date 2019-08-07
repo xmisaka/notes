@@ -1,3 +1,13 @@
+- [ThreadLocal 是什么、有什么、能做什么？](#threadlocal--------------)
+- [从数据结构入手：](#--------)
+- [深入解析ThreadLocal](#----threadlocal)
+    + [get()方法](#get----)
+    + [set()方法](#set----)
+    + [remove()方法](#remove----)
+    + [Hash冲突怎么解决](#hash------)
+  * [总结](#--)
+  * [ThreadLocal内存泄漏问题分析](#threadlocal--------)
+
 ## ThreadLocal 是什么、有什么、能做什么？
 > ThreadLocal提供一个线程（Thread）局部变量，访问某个变量的每一个线程都拥有自己的局部变量。说白了，ThreadLocal就是想在多线程环境下区保证成员变量的安全。  
 ThreadLocal是一个本地线程副本变量工具类。主要用于将私有线程和该线程存放的副本对象做一个映射，各个线程之间的变量互不干扰，在高并发场景下，
