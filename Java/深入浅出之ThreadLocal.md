@@ -13,7 +13,7 @@
 ThreadLocal是一个本地线程副本变量工具类。主要用于将私有线程和该线程存放的副本对象做一个映射，各个线程之间的变量互不干扰，在高并发场景下，
 可以实现无状态的调用，特别适用于各个线程依赖不通的变量值完成操作的场景。
 ThreadLocal提供的方法；  
-![属性和方法](../imgs/threadlocal.png)
+![属性和方法](../imgs/threadlocal.png)  
 > 对于ThreadLocal而言，常用的方法，就是get/set/remove方法。
 我们先来看一个例子：
 ```java
@@ -73,7 +73,7 @@ Thread-1:10
 
 ## 从数据结构入手：   
 下面为ThreadLocal的内部结构图  
-![内部结构](../imgs/threadlocal2.jpg)
+![内部结构](../imgs/threadlocal2.jpg)  
 从上面的结构图，我们已经窥见ThreadLocal的核心机制：
 - 每个Thread线程内部都有一个Map。
 - Map里面存储线程本地对象（key）和线程的变量副本（value）。
@@ -332,7 +332,7 @@ b = null;
 可以c = null;也可以使用弱引用！（WeakReference w = new WeakReference(b);）    
 分析到这里，我们可以得到：  
 ![内存结构图](../imgs/threadlocal2.png)
-这里我们思考一个问题：ThreadLocal使用到了弱引用，是否意味着不会存在内存泄露呢？  
+这里我们思考一个问题：ThreadLocal使用到了弱引用，是否意味着不会存在内存泄露呢？    
 > 首先来说，如果把ThreadLocal置为null，那么意味着Heap中的ThreadLocal实例不在有强引用指向，只有弱引用存在，因此GC是可以回收这部分空间的，也就是key是可以回收的。  
 但是value却存在一条从Current Thread过来的强引用链。因此只有当Current Thread销毁时，value才能得到释放。  
 >
